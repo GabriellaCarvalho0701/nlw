@@ -1,0 +1,53 @@
+
+.select-block label,
+.input-block label,
+.textarea-block label{
+    font-size: 1.4rem;
+    color: var(--color-text-complement);
+}
+
+.input-block input,
+.select-block select,
+.textarea-block textarea{
+    width: 100%;
+    height: 5.6rem;
+    margin-top: 0.8rem;
+    border-radius: 0.8rem;
+    background: var(--color-input-background);
+    border: 1px solid var(--color-line-in-white);
+    outline: 0; /*Tirando a linha em volta do input, não é uma prática muito adequada, pois quem precisa de ajuda visual fica prejudicado*/
+    padding: 0 1.6rem;
+    font: 1.6rem Archivo;
+}
+
+.textarea-block textarea{
+    padding: 1.2rem 1.6rem;
+    height: 16rem;
+
+    resize: vertical; /*Textarea passa a "crescer" somente na vertical e não mais para todos os lados*/
+}
+
+.input-block,
+.textarea-block{
+    position: relative;
+}
+
+.input-block:focus-within::after, 
+.textarea-block:focus-within::after{  /*Focus: está em foco, ::after - cria um elemento html somente quando o elemento estiver em foco*/
+    content: ""; /*Elemento tem que ter algum conteúdo*/
+
+    width: calc(100% - 3.2rem);
+    height: 2px;
+
+    background: var(--color-primary-light);
+
+    position: absolute;
+    left: 1.6rem;
+    bottom: 0;
+} 
+
+label small{
+    font-size: 1.2rem;
+    padding-left: 1.2rem;
+    color: var(--color-small-info);
+}
