@@ -13,7 +13,7 @@ Database.then(async (db) => {   //Função curta
     }
 
     classValue = {
-        subject: "Química",
+        subject: 1,
         cost: "20"
         //O proffy_id virá pelo banco de dados, após o cadastramento da class
     }
@@ -32,7 +32,7 @@ Database.then(async (db) => {   //Função curta
         }
     ]
     
-    // await createProffy(db, {proffyValue, classValue, classScheduleValues})  //Lemebre-se que a função lá de cima precisa ser async
+    await createProffy(db, {proffyValue, classValue, classScheduleValues})  //Lembre-se que a função lá de cima precisa ser async
 
 
     // Consultar dados inseridos
@@ -56,8 +56,10 @@ Database.then(async (db) => {   //Função curta
     const selectClassesSchedules = await db.all(`
         SELECT class_schedule.* 
         FROM class_schedule
-        WHERE class_schedule.class_id = 1
+        WHERE class_schedule.class_id = "1"
         AND class_schedule.weekday = "0"
+        AND class_schedule.time_from <= "1300"
+        AND class_schedule.time_to > "1300"
     `)
     console.log(selectClassesSchedules)
-})
+}) 
